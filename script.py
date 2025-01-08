@@ -15,14 +15,16 @@ model = AutoModelForCausalLM.from_pretrained(live_model_path)
 tokenizer.pad_token = tokenizer.eos_token
 
 def chat():
-    print("Chatbot is ready to talk! Type 'exit' to quit.")
-    
+    print("Chatbot is ready to talk! Simulated conversation begins...")
+
+    # Simulated inputs for GitHub Actions
+    simulated_inputs = ["hello", "how are you", "what is your name", "exit"]
+
     # Initialize the chat history to None
     chat_history_ids = None
 
-    while True:
-        # Get user input
-        user_input = input("You: ")
+    for user_input in simulated_inputs:
+        print(f"You: {user_input}")
 
         # Exit condition
         if user_input.lower() == "exit":
@@ -40,10 +42,10 @@ def chat():
 
         # Generate a response from the model
         chat_history_ids = model.generate(
-            bot_input_ids, 
-            max_length=1000, 
-            pad_token_id=tokenizer.eos_token_id, 
-            no_repeat_ngram_size=3, 
+            bot_input_ids,
+            max_length=1000,
+            pad_token_id=tokenizer.eos_token_id,
+            no_repeat_ngram_size=3,
             temperature=0.7,
             top_k=50,
             top_p=0.92
