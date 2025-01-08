@@ -1,4 +1,4 @@
-name: Run Python Script
+name: Run Chatbot
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  run-python:
+  run-chatbot:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,8 +21,7 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        pip install -r requirements.txt
 
-    - name: Run Python Script
-      run: python script.py
-
+    - name: Run Chatbot
+      run: python chatbot.py
