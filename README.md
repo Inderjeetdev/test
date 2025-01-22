@@ -1,2 +1,1 @@
-# test
-For testing purposes
+Simple Chatbot in Python
